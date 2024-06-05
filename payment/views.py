@@ -55,6 +55,12 @@ def process_order(request):
                         # Create order item
                         create_order_item = OrderItem(order_id=order_id, part_id=part_id, user=user, quantity=value, price=price)
                         create_order_item.save()
+            
+            # Delete our cart
+            for key in list(request.session.keys()):
+                if key == "session_key":
+                    # Delete the key
+                    del request.session[key]
 
             messages.success(request, 'Order Placed!')
             return redirect('home')
@@ -85,6 +91,12 @@ def process_order(request):
                         # Create order item
                         create_order_item = OrderItem(order_id=order_id, part_id=part_id, quantity=value, price=price)
                         create_order_item.save()
+
+            # Delete our cart
+            for key in list(request.session.keys()):
+                if key == "session_key":
+                    # Delete the key
+                    del request.session[key]
 
             messages.success(request, 'Order Placed!')
             return redirect('home')
@@ -117,8 +129,8 @@ def billing_info(request):
             billing_form = PaymentForm()
             return render(request, "payment/billing_info.html", {"cart_parts":cart_parts, "quantities":quantities, "totals":totals, "shipping_info":request.POST, "billing_form":billing_form})
 
-        shipping_form = request.POST
-        return render(request, "payment/billing_info.html", {"cart_parts":cart_parts, "quantities":quantities, "totals":totals, "shipping_form":shipping_form})
+        # shipping_form = request.POST
+        # return render(request, "payment/billing_info.html", {"cart_parts":cart_parts, "quantities":quantities, "totals":totals, "shipping_form":shipping_form})
     else:
         messages.success(request, "Access Denied")
         return redirect('home')
