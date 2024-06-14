@@ -108,14 +108,11 @@ The Online Parts Ordering System is a comprehensive web application built using 
 
 ## License
 
-    ```
     This project is licensed under the MIT License. See the LICENSE file for details.
-
-    ```
 
 ## Contact
 
-_For any inquiries or support, please contact:_
+- _For any inquiries or support, please contact:_
 
 **Name:** Kiringabakwe Ibrahim
 **Email:** ibrahimkiri@gmail.com

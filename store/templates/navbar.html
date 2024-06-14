@@ -9,40 +9,21 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{% url 'category_summary' %}">All Parts</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'Engine-Parts' %}">Engine Parts</a>
-                        </li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'Braking-Parts' %}">Braking System
-                                Parts</a></li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'Transmission-Parts' %}">Transmission
-                                System Parts</a>
-                        </li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'Steering-Parts' %}">Steering and
-                                Suspension
-                                Parts</a></li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'Electrical-Parts' %}">Electrical
-                                System Parts</a></li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'Exhaust-Parts' %}">Exhaust System
-                                Parts</a></li>
-                    </ul>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'category_summary' %}">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
             </ul>
+
             <div class="d-flex mx-auto me-4">
-                <a class="nav-link active" aria-current="page" href="{% url 'search' %}">
-                    <svg xmlns=" http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg>
-                </a>
+                <form class="input-group d-flex" role="search" method="POST" action="{% url 'search' %}">
+                    {% csrf_token %}
+                    <input class="form-control border" type="search" placeholder="Search" aria-label="Search"
+                        aria-describedby="button-addon2" name="searched">
+                    <button class="btn btn-light border shadow-0" type="submit" id="button-addon2"
+                        data-mdb-ripple-color="dark">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                </form>
             </div>
 
             <form class="d-flex">
@@ -90,7 +71,8 @@
 
                 <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 {% else %}
-                <a class="nav-link" href="{% url 'login' %}">Login</a> &nbsp;&nbsp;
+                <i class="bi bi-person"></i>
+                <a class="nav-link" href="{% url 'login' %}">Login</a> &nbsp;/&nbsp;
                 <a class="nav-link" href="{% url 'register' %}">Register</a></li>
                 {% endif %}
             </div>

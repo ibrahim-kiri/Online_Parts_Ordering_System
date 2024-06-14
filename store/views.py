@@ -128,8 +128,8 @@ def home(request):
     return render(request, 'home.html', {'parts':parts})
 
 
-def about(request):
-    return render(request, 'about.html', {})
+def contact(request):
+    return render(request, 'contact.html', {})
 
 
 def login_user(request):
