@@ -43,10 +43,10 @@
                         </div>
 
                         <!-- Part price -->
-                        <span class="h5"><strike>{{ part.price }}/-</strike></span> &nbsp;
-                        <span class="h5">{{ part.sale_price }}/-</span>
+                        <span class="h5"><strike>UGX{{ part.price }}</strike></span> &nbsp;
+                        <span class="h5">UGX{{ part.sale_price }}</span>
                         {% else %}
-                        <span class="h5">{{ part.price }}/-</span>
+                        <span class="h5">UGX{{ part.price }}</span>
                         <br />
                         {% endif %}
                     </div>
@@ -202,7 +202,7 @@
                                     <a href="#" class="nav-link mb-1">
                                         {{ part.name }}
                                     </a>
-                                    <strong class="text-dark"> {{ part.price }}/-</strong>
+                                    <strong class="text-dark"> UGX{{ part.price }}</strong>
                                 </div>
                             </div>
                         </div>

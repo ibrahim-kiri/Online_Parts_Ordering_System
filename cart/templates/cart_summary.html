@@ -52,12 +52,12 @@
 
                                     <!-- Part price -->
                                     <div class="d-flex justify-content-center mt-2">
-                                        <text class="h6"><strike>{{ part.price }}/-</strike></text> &nbsp;
-                                        <text class="h6">{{ part.sale_price }}</text>
+                                        <text class="h6"><strike>UGX{{ part.price }}/-</strike></text> &nbsp;
+                                        <text class="h6">UGX{{ part.sale_price }}</text>
                                     </div>
                                     {% else %}
                                     <div class="d-flex justify-content-center mt-2">
-                                        <text class="h6">{{ part.price }}/-</text>
+                                        <text class="h6">UGX{{ part.price }}</text>
                                     </div>
                                     <br />
                                     {% endif %}
@@ -74,10 +74,9 @@
                             </div>
                         </div>
                         {% endfor %}
-                        <br /><br />
                         {% else %}
                         There's Nothing In Your Cart!!
-                        <br /><br /><br /><br /><br />
+                        <br /><br />
                         {% endif %}
                     </div>
 
@@ -115,7 +114,7 @@
                         <hr />
                         <div class="d-flex justify-content-between">
                             <p class="mb-2">Total price:</p>
-                            <p class="mb-2 fw-bold">{{ totals }}/-</p>
+                            <p class="mb-2 fw-bold">UGX{{ totals }}</p>
                         </div>
 
                         <div class="mt-3">

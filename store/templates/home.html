@@ -56,7 +56,7 @@
 
 <!-- Section-->
 
-<section class="py-4">
+<section class="">
     <div class="container px-4 px-lg-5 mt-5">
         <header class="mb-4">
             <h3>New parts</h3>
@@ -87,8 +87,8 @@
                             </div>
 
                             <!-- Part price -->
-                            <strike>{{ part.price }}/-</strike> &nbsp;
-                            {{ part.sale_price }}/-
+                            <strike>UGX{{ part.price }}</strike> &nbsp;
+                            UGX{{ part.sale_price }}
                         </div>
                     </div>
                     <!-- Part actions -->
@@ -110,10 +110,10 @@
                             <!-- Part name -->
                             <h5 class="fw-bolder">{{ part.name }}</h5>
                             <!-- Part price -->
-                            {{ part.price }}/-
+                            UGX{{ part.price }}
                         </div>
                     </div>
-                    <!-- Product actions-->
+                    <!-- Part actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center"><a class="btn btn-outline-dark mt-auto"
                                 href="{% url 'part' part.id %}">View Part</a>
@@ -207,7 +207,7 @@
             <div class="row pt-1">
                 <div class="col-lg-3 col-md-6 mb-3 d-flex">
                     <div class="d-flex align-items-center">
-                        <div class="badge badge-warning p-2 rounded-4 me-3">
+                        <div class="bg-warning p-2 rounded-4 me-3">
                             <i class="fas fa-thumbs-up fa-2x fa-fw"></i>
                         </div>
                         <span class="info">
@@ -218,7 +218,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-3 d-flex">
                     <div class="d-flex align-items-center">
-                        <div class="badge badge-warning p-2 rounded-4 me-3">
+                        <div class="bg-warning p-2 rounded-4 me-3">
                             <i class="fas fa-plane fa-2x fa-fw"></i>
                         </div>
                         <span class="info">
@@ -229,7 +229,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-3 d-flex">
                     <div class="d-flex align-items-center">
-                        <div class="badge badge-warning p-2 rounded-4 me-3">
+                        <div class="bg-warning p-2 rounded-4 me-3">
                             <i class="fas fa-star fa-2x fa-fw"></i>
                         </div>
                         <span class="info">
@@ -240,7 +240,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-3 d-flex">
                     <div class="d-flex align-items-center">
-                        <div class="badge badge-warning p-2 rounded-4 me-3">
+                        <div class="bg-warning p-2 rounded-4 me-3">
                             <i class="fa-solid fa-phone-flip fa-2x fa-fw"></i>
                         </div>
                         <span class="info">
