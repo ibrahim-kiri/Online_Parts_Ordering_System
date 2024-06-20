@@ -1,0 +1,67 @@
+.card-top{
+    padding: 0.7rem 5rem;
+}
+.card-top a{
+    float: left;
+    margin-top: 0.7rem;
+}
+
+@media(max-width:768px){
+    .card-top{
+        padding: 0.7rem 1rem;
+    }
+}
+.row{
+    margin: 0;
+}
+.upper{
+    padding: 1rem 0;
+    justify-content: space-evenly;
+}
+
+.icons{
+    margin-left: auto;
+}
+.header{
+    font-size: 1rem;
+}
+.left{
+    background-color: #ffffff;
+    padding: 2vh;   
+}
+.left img{
+    width: 2rem;
+}
+.left .col-4{
+    padding-left: 0;
+}
+.right .item{
+    padding: 0.3rem 0;
+}
+.right{
+    background-color: #ffffff;
+    padding: 2vh;
+}
+.col-8{
+    padding: 0 1vh;
+}
+.lower{
+    line-height: 2;
+}
+a{
+    color: black;
+}
+a:hover{
+    color: black;
+    text-decoration: none;
+}
+input[type=checkbox]{
+    width: unset;
+    margin-bottom: unset;
+}
+#cvv{
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.575) , rgba(255, 255, 255, 0.541)), url("https://img.icons8.com/material-outlined/24/000000/help.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+}

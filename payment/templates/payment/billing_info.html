@@ -2,85 +2,125 @@
 
 {% block content %}
 
-<!-- Header-->
-<header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Billing Information</h1>
-            <p class="lead fw-normal text-white-50 mb-0">Enter Your Payment Information</p>
-        </div>
-    </div>
-</header>
-
 <!-- Section-->
 <br />
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-xl-5">
             <div class="card">
-                <div class="card-header">
-                    Order Summary
-                </div>
                 <div class="card-body">
+                    <div class="header">Order Summary</div>
                     {% for part in cart_parts %}
-                    {{ part.name }}:
-                    {% if part.is_sale %}
-                    {{ part.sale_price }}/-
-                    {% else %}
-                    {{ part.price }}/-
-                    {% endif %}
-
-                    <br />
-                    <small>
-                        Quantity:
-                        {% for key, value in quantities.items %}
-                        {% if key == part.id|slugify %}
-                        {{ value }}
-                        {% endif %}
-                        {% endfor %}
-                    </small>
-                    <br /><br />
+                    <div class="table-responsive">
+                        <table class="table table-centered mb-0 table-nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0" style="width: 110px;" scope="col">Part
+                                    </th>
+                                    <th class="border-top-0" scope="col">Part Desc</th>
+                                    <th class="border-top-0" scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for part in cart_parts %}
+                                <tr>
+                                    <th scope="row"><img src="{{ part.image.url }}" alt="product-img"
+                                            title="product-img" class="avatar-lg rounded"></th>
+                                    <td>
+                                        <h6 class="font-size-16 text-truncate">{{ part.name }}</h6>
+                                        <p class="text-muted mb-0">
+                                            <i class="bx bxs-star text-warning"></i>
+                                            <i class="bx bxs-star text-warning"></i>
+                                            <i class="bx bxs-star text-warning"></i>
+                                            <i class="bx bxs-star text-warning"></i>
+                                            <i class="bx bxs-star-half text-warning"></i>
+                                        </p>
+                                        <p class="text-muted mb-0 mt-1">
+                                            Qty:
+                                            {% for key, value in quantities.items %}
+                                            {% if key == part.id|slugify %}
+                                            {{ value }}
+                                            {% endif %}
+                                            {% endfor %}
+                                        </p>
+                                    </td>
+                                    <td>
+                                        {% if part.is_sale %}
+                                        UGX{{ part.sale_price }}
+                                        {% else %}
+                                        UGX{{ part.price }}
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                <tr class="bg-light">
+                                    <td colspan="2">
+                                        <h6 class="font-size-16 m-0">Total:</h5>
+                                    </td>
+                                    <td>
+                                        <h6 class="font-size-16">UGX{{ totals }}</h6>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     {% endfor %}
-                    <strong>Total: {{ totals }}/-</strong>
-                    <br /><br />
-                    <a href="{% url 'cart_summary' %}" class="btn btn-sm btn-outline-secondary">Update Items</a>
+                    <div class="card-body">
+                        <a href="{% url 'cart_summary' %}" class="btn btn-sm btn-outline-secondary">Update
+                            Items</a>
+                    </div>
+                    <hr>
+                    <div class="header">Shipping Info</div>
+                    <div class="row item">
+                        <div class="card-body">
+                            Name: {{ shipping_info.shipping_full_name }}<br />
+                            Email: {{ shipping_info.shipping_email }}<br />
+                            Address 1: {{ shipping_info.shipping_address1 }}<br />
+                            Address 2: {{ shipping_info.shipping_address2 }}<br />
+                            City: {{ shipping_info.shipping_city }}<br />
+                            State: {{ shipping_info.shipping_state }}<br />
+                            Zipcode: {{ shipping_info.shipping_zipcode }}<br />
+                            Country: {{ shipping_info.shipping_country }}<br />
+                            <br />
+                            <a href="{% url 'checkout' %}" class="btn btn-outline-secondary">Update
+                                Shipping</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <br /><br />
+            <div class="card-top text-center">
+                <a href="#"> Back to shop</a>
+            </div>
+        </div>
+        <div class="col-xl-7">
             <div class="card">
-                <div class="card-header">
-                    Shipping Information
-                </div>
                 <div class="card-body">
-                    Name: {{ shipping_info.shipping_full_name }}<br />
-                    Email: {{ shipping_info.shipping_email }}<br />
-                    Address 1: {{ shipping_info.shipping_address1 }}<br />
-                    Address 2: {{ shipping_info.shipping_address2 }}<br />
-                    City: {{ shipping_info.shipping_city }}<br />
-                    State: {{ shipping_info.shipping_state }}<br />
-                    Zipcode: {{ shipping_info.shipping_zipcode }}<br />
-                    Country: {{ shipping_info.shipping_country }}<br />
-                    <br />
-                    <a href="{% url 'checkout' %}" class="btn btn-outline-secondary">Update Shipping</a>
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <span class="header">Billing Info</span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="icons">
+                                <img src="https://img.icons8.com/color/48/000000/visa.png" />
+                                <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" />
+                                <!-- <img src="https://img.icons8.com/color/48/000000/maestro.png" /> -->
+                                <img src="https://img.icons8.com/color/48/000000/paypal.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{% url 'process_order' %}">
+                            {% csrf_token %}
+                            {{ billing_form.as_p }}
+                            <button type="submit" class="btn btn-success"><i
+                                    class="me-1 fa fa-shopping-basket"></i>Place Order</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <br />
-            <div class="card">
-                <div class="card-header">
-                    Billing Information
-                </div>
-                <div class="card-body">
-                    <form method="POST" action="{% url 'process_order' %}">
-                        {% csrf_token %}
-                        {{ billing_form.as_p }}
-                </div>
-            </div>
-            <br />
-            <button type="submit" class="btn btn-secondary">Pay Now</button>
-            </form>
-            <br /><br />
         </div>
     </div>
 </div>
+
 
 {% endblock %}
