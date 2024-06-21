@@ -1,41 +1,55 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- Header-->
-<header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Update Info</h1>
-            <p class="lead fw-normal text-white-50 mb-0">Update User Info</p>
-        </div>
-    </div>
-</header>
-
-<div class="container">
+<div class="container mt-5">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <br /><br />
-            <strong>Billing Information</strong>
-            <br /><br />
-            <form method="POST" action="{% url 'update_info' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <br />
-                <strong>Shipping Information</strong>
-                <br /><br />
-                {{ shipping_form.as_p }}
-                <br />
-                <button type="submit" class="btn btn-secondary">Update</button>
-            </form>
-
-            <br /><br />
-            <br /><br />
-            <br /><br />
-            <br /><br />
-            <br /><br />
-            <br /><br />
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <ol class="activity-checkout mb-0 px-4 mt-3">
+                        <li class="checkout-item">
+                            <div class="feed-item-list">
+                                <div>
+                                    <form method="POST" action="{% url 'update_info' %}">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="avatar checkout-icon p-1">
+                                                    <div class="avatar-title rounded-circle bg-primary">
+                                                        <i class="bx bxs-edit text-white font-size-20"></i>
+                                                    </div>
+                                                </div>
+                                                <h5 class="font-size-16 mb-1">Billing Information</h5>
+                                                <p class="text-muted text-truncate mb-4">Sed ut perspiciatis unde
+                                                    omnis
+                                                    iste
+                                                </p>
+                                                {{ form.as_p }}
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5 class="font-size-16 mb-1">Shipping Information</h5>
+                                                <p class="text-muted text-truncate mb-4">Sed ut perspiciatis unde
+                                                    omnis
+                                                    iste
+                                                </p>
+                                                {{ shipping_form.as_p }}
+                                            </div>
+                                        </div>
+                                        <div class="text-end mt-0 mt-sm-0">
+                                            <button type="submit" class="btn btn-success">
+                                                Update
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 {% endblock %}

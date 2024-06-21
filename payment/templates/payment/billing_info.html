@@ -9,7 +9,7 @@
         <div class="col-xl-5">
             <div class="card">
                 <div class="card-body">
-                    <div class="header">Order Summary</div>
+                    <h6 class="header">Order Summary</h6>
                     {% for part in cart_parts %}
                     <div class="table-responsive">
                         <table class="table table-centered mb-0 table-nowrap">
@@ -70,40 +70,70 @@
                             Items</a>
                     </div>
                     <hr>
-                    <div class="header">Shipping Info</div>
+                    <h6 class="header">Shipping Info</h6>
                     <div class="row item">
                         <div class="card-body">
-                            Name: {{ shipping_info.shipping_full_name }}<br />
-                            Email: {{ shipping_info.shipping_email }}<br />
-                            Address 1: {{ shipping_info.shipping_address1 }}<br />
-                            Address 2: {{ shipping_info.shipping_address2 }}<br />
-                            City: {{ shipping_info.shipping_city }}<br />
-                            State: {{ shipping_info.shipping_state }}<br />
-                            Zipcode: {{ shipping_info.shipping_zipcode }}<br />
-                            Country: {{ shipping_info.shipping_country }}<br />
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0 table-nowrap">
+                                    <tr>
+                                        <th>Name:</th>
+                                        <td>{{ shipping_info.shipping_full_name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email:</th>
+                                        <td>{{ shipping_info.shipping_email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Address 1:</th>
+                                        <td>{{ shipping_info.shipping_address1 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Address 2:</th>
+                                        <td>{{ shipping_info.shipping_address2 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>City:</th>
+                                        <td>{{ shipping_info.shipping_city }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>State:</th>
+                                        <td>{{ shipping_info.shipping_state }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Zipcode:</th>
+                                        <td>{{ shipping_info.shipping_zipcode }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Country:</th>
+                                        <td>{{ shipping_info.shipping_country }}</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <br />
-                            <a href="{% url 'checkout' %}" class="btn btn-outline-secondary">Update
+                            <a href="{% url 'checkout' %}" class="btn btn-sm btn-outline-secondary">Update
                                 Shipping</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-top text-center">
-                <a href="#"> Back to shop</a>
-            </div>
+            <div class="row my-4">
+                <div class="col">
+                    <a href="{% url 'home' %}" class="btn btn-link text-muted">
+                        <i class="mdi mdi-arrow-left me-1"></i> Back to shop</a>
+                </div> <!-- end col -->
+            </div> <!-- end row-->
         </div>
         <div class="col-xl-7">
             <div class="card">
                 <div class="card-body">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-auto">
-                            <span class="header">Billing Info</span>
+                            <h6 class="header">Billing Info</h6>
                         </div>
                         <div class="col-auto">
                             <div class="icons">
                                 <img src="https://img.icons8.com/color/48/000000/visa.png" />
                                 <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" />
-                                <!-- <img src="https://img.icons8.com/color/48/000000/maestro.png" /> -->
                                 <img src="https://img.icons8.com/color/48/000000/paypal.png" />
                             </div>
                         </div>
@@ -112,8 +142,10 @@
                         <form method="POST" action="{% url 'process_order' %}">
                             {% csrf_token %}
                             {{ billing_form.as_p }}
-                            <button type="submit" class="btn btn-success"><i
-                                    class="me-1 fa fa-shopping-basket"></i>Place Order</button>
+                            <div class="text-end mt-0 mt-sm-0">
+                                <button type="submit" class="btn btn-success"><i
+                                        class="mdi mdi-cart-outline me-1"></i>Place Order</button>
+                            </div>
                         </form>
                     </div>
                 </div>
