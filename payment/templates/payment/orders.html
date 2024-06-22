@@ -26,6 +26,7 @@
                         {% endfor %}
                         <br /><br />
                         {% if not order.shipped %}
+                        <!-- shipped -->
                         <form method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="shipping_status" value="true" />
