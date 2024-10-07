@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-&x#z!y(8wcl*c+jowxq)i22+qm%!a5wp_mgtt4x_prz5#1yxde
 DEBUG = True
 
 ALLOWED_HOSTS = ['onlinepartsorderingsystem-production.up.railway.app', 'https://onlinepartsorderingsystem-production.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['onlinepartsorderingsystem-production.up.railway.app', 'https://onlinepartsorderingsystem-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://onlinepartsorderingsystem-production.up.railway.app']
 
 
 # Application definition
