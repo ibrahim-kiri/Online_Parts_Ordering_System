@@ -1,0 +1,38 @@
+/* category */
+.form-check-input {
+    position: relative;
+    width: 1.125rem;
+    height: 1.125rem;
+    background-color: var(--mdb-body-bg);
+    border: .125rem solid var(--mdb-form-control-border-color);
+}
+
+.form-check-input:checked {
+    background-color: #3b71ca;
+    -color: #3b71ca;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: .25em;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+.form-check-input[type=checkbox]:checked {
+    background-image: none;
+    background-color: #3b71ca;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: .25rem;
+    margin-top: .19em;
+    margin-right: 6px;
+}
