@@ -30,8 +30,8 @@ SECRET_KEY = 'django-insecure-&x#z!y(8wcl*c+jowxq)i22+qm%!a5wp_mgtt4x_prz5#1yxde
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://onlinepartsorderingsystem-production.up.railway.app', 'https://onlinepartsorderingsystem-production.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['http://onlinepartsorderingsystem-production.up.railway.app', 'https://onlinepartsorderingsystem-production.up.railway.app']
+ALLOWED_HOSTS = ['onlinepartsorderingsystem-production.up.railway.app', 'https://onlinepartsorderingsystem-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['onlinepartsorderingsystem-production.up.railway.app', 'https://onlinepartsorderingsystem-production.up.railway.app']
 
 
 # Application definition
@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'PASSWORD': os.environ['DB_PASSWORD'],
         'HOST': 'autorack.proxy.rlwy.net',
         'PORT': '31330',
     }
