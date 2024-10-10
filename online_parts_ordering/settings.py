@@ -18,8 +18,10 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load our environmental variables
-load_dotenv()
+# load_dotenv()
 
+# Password DB
+DB_PASSWORD = os.environ['DB_PASSWORD']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
     'cart',
     'payment',
     'whitenoise.runserver_nostatic',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -92,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': os.environ['DB_PASSWORD'],
+        'PASSWORD': DB_PASSWORD,
         'HOST': 'autorack.proxy.rlwy.net',
         'PORT': '31330',
     }
@@ -147,3 +150,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Add paypal settings
+# Set sandbox to true
+PAYPAL_TEST = True
+
+PAYPAL_RECIEVER_EMAIL = 'businespal572@gmail.com' # Business Sandbox account
