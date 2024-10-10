@@ -208,12 +208,12 @@ def billing_info(request):
 
         # Create Paypal Form and dictionary
         paypal_dict = {
-            'business': settings.PAYPAL_RECIEVER_EMAIL,
+            'business': settings.PAYPAL_RECEIVER_EMAIL,
             'amount': totals,
             'item_name': "Part Order",
             'no_shipping': '2',
             'invoice': str(uuid.uuid4()),
-            'currency_code': 'UGX',
+            'currency_code': 'USD',
             'notify_url': 'https://{}{}'.format(host, reverse("paypal-ipn")),
             'return_url': 'https://{}{}'.format(host, reverse("payment_success")),
             'cancel_return': 'https://{}{}'.format(host, reverse("payment_failed")),
